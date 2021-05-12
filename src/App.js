@@ -1,6 +1,7 @@
-import Expenses from './components/Expenses'
+import React from 'react'
+import Expenses from './components/Expenses/Expenses'
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: 'e1',
@@ -23,12 +24,23 @@ function App() {
     },
   ];
 
-  return(
-  <div>
-      <h2>Let's do it</h2>
-      <Expenses items={expenses}/>
-  </div>
+  /*
+  this code representes exactly the as as the one commented below  
+  except that this code is used in the past for old version of react
+  and also you have to import React from 'react' in every js file.
+  */
+  return React.createElement(
+    'div',
+    {},
+    React.createElement('h2', {} ,"Let's do it"),
+    React.createElement(Expenses,{items: expenses})
   )
+  // return(
+  // <div>
+  //     <h2>Let's do it</h2>
+  //     <Expenses items={expenses}/>
+  // </div>
+  // )
 }
 
 export default App;
