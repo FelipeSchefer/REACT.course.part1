@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import './ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   /** 
    *  There are 2 ways of setting values to the inputs in the form one is like this code below
    *  which starts with an empty string and then that is involked by a handler function which 
@@ -71,7 +71,8 @@ const ExpenseForm = () => {
       amount: enteredAmount,
       date: new Date(enteredDate)
     }
-    console.log(expenseData)
+   
+    props.onSaveExpenseData(expenseData)
     setEnteredTitle('')
     setEnteredAmount('')
     setEnteredData('')
@@ -104,6 +105,7 @@ const ExpenseForm = () => {
         </div>
       </div>
       <div className='new-expense__actions'>
+        <button type='button' onClick={props.onCancel}>Cancel</button>
         <button type='submit'>Add Expense</button>
       </div>
     </form>
